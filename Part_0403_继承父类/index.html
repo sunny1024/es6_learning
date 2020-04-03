@@ -10,5 +10,28 @@
 <body>
     <p>继承父类111</p>
 </body>
+<script>
+    function Father(uname, age) {
+        // this指向父类的实例对象
+        this.uname = uname;
+        this.age = age;
+
+    }
+    function Son(uname, age) {
+        // this指向子类的实例对象 通过call()把父类型的this指向子类
+        Father.call(this, uname, age);
+    }
+    Son.prototype = new Father();
+    // 如果利用对象的形式改变了构造函数，别忘了用constructor指回原来的构造函数；
+    Son.prototype.constructor = Son;
+    // 这个子构造函数中专门的方法
+    Son.prototype.money = function () {
+        console.log(200000);
+    }
+    var son = new Son('刘德华', 20);
+    // console.log(son);
+    console.log(Son.prototype.constructor);
+    console.log(Father.prototype.constructor)
+</script>
 
 </html>
