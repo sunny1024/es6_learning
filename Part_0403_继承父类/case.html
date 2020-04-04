@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/case.css" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="search">
+        按照价格查询：<input type="text" class="start">-<input type="text" class="end">
+        <button class="search-price">搜索</button>按照商品名称查询:<input type="text" class="product">
+        <button class="search-pro">查询</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>产品名称</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        // 声明一个数组，数组里面的每一个值是一个对象
+        var date = [{
+            id: 1,
+            pname: "小米",
+            price: 3999,
+        }, {
+            id: 2,
+            pname: "oppo",
+            price: 999,
+        }, {
+            id: 3,
+            pname: "荣耀",
+            price: 1299,
+        }, {
+            id: 4,
+            pname: "华为",
+            price: 1999,
+        }];
+        //1.获取相应的元素
+        var tbody = document.querySelector("tbody");
+        var search_price = document.querySelector(".search-price")
+        var start = document.querySelector(".start");
+        var end = document.querySelector(".end");
+        var product = document.querySelector(".product");
+        var search_pro = document.querySelector(".search-pro");
+        setData(date);
+        // 2.把数据渲染到页面中
+        function setData(mydate) {
+            tbody.innerHTML = '';
+            mydate.forEach(function (value) {
+                var tr = document.createElement("tr");
+                tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>'
+                tbody.appendChild(tr);
+            })
+        }
+        // 3.筛选符合的数据渲染到页面中
+        search_price.addEventListener('click', function () {
+            var newDate = date.filter(function (value) {
+                return value.price >= start.value && value.price <= end.value;
+            })
+            setData(newDate);
+        })
+        // 4.查找唯一的元素
+        search_pro.addEventListener('click', function () {
+            var arr = [];
+            date.some(function (value) {
+                if (value.pname === product.value) {
+                    // 往数组里面添加数据用push()方法
+                    arr.push(value);
+                    // console.log(arr);
+                    return true;//这里的return后面必须加true;
+                }
+            })
+            setData(arr);
+        })
+    </script>
+</body>
+
+</html>
