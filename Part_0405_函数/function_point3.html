@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 改变this指向的三种方式  call()  apply()   bind()
+
+        // bind()
+
+        var o = {
+            name: "张三丰",
+        }
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+        }
+
+        var f = fn.bind(o, 1, 5);
+        f();
+
+        //  1.不会调用原来的函数，可以改变函数内部的this指向；
+        //  2.返回的是原函数改变this之后产生的新函数；
+    </script>
+</body>
+
+</html>
