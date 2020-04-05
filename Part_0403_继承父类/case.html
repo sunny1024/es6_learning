@@ -53,15 +53,17 @@
         var product = document.querySelector(".product");
         var search_pro = document.querySelector(".search-pro");
         setData(date);
-        // 2.把数据渲染到页面中
-        function setData(mydate) {
+
+        // 2.把数据渲染到页面中，list: [{},{},{}]
+        function setData(list) {
             tbody.innerHTML = '';
-            mydate.forEach(function (value) {
+            list.forEach(function (value) {
                 var tr = document.createElement("tr");
                 tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>'
                 tbody.appendChild(tr);
             })
         }
+
         // 3.筛选符合的数据渲染到页面中
         search_price.addEventListener('click', function () {
             var newDate = date.filter(function (value) {
@@ -71,9 +73,19 @@
         })
         // 4.查找唯一的元素
         search_pro.addEventListener('click', function () {
+
+            // 如果无查询条件，则查询所有。
+            if (!product.value) {
+                setData(date);
+                return false;
+            }
+
             var arr = [];
             date.some(function (value) {
-                if (value.pname === product.value) {
+
+                // includes，包含的意思。a.includes(b): 判断 a 中是否包含元素 b
+
+                if (value.pname.includes(product.value)) {
                     // 往数组里面添加数据用push()方法
                     arr.push(value);
                     // console.log(arr);
