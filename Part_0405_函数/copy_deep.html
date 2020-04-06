@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 深拷贝
+        var o = {
+            name: "张三",
+            sex: "男",
+            hobby: {
+                sport: "basketball",
+            },
+            color: ["red", "yellow", "blue"],
+        };
+        var obj = {
+
+        };
+        // 利用递归函数实现深拷贝  先封装一个函数
+        function deepCopy(newobj, oldobj) {
+            for (var k in oldobj) {
+                var item = oldobj[k];
+                if (item instanceof Array) {
+                    newobj[k] = [];
+                    deepCopy(newobj[k], item);
+                } else if (item instanceof Object) {
+                    newobj[k] = {};
+                    deepCopy(newobj[k], item);
+                } else {
+                    newobj[k] = item;
+                }
+            }
+        }
+        deepCopy(obj, o); //调用函数实现深拷贝
+        obj.color = ["yellow", "gold"];
+        console.log(obj);
+        console.log(o);
+    </script>
+</body>
+
+</html>
