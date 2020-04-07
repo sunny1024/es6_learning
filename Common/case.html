@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <title>Document</title>
+    <style>
+        .layui-carousel {
+            margin: 0 auto;
+        }
+
+        div[carousel-item]>* {
+            text-align: center;
+            line-height: 280px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        div[carousel-item]>*:nth-child(2n+1) {
+            background-color: #009688;
+        }
+
+        div[carousel-item]>*:nth-child(2n) {
+            background-color: #5FB878;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-carousel" id="test1">
+        <div carousel-item>
+            <div>条目1</div>
+            <div>条目2</div>
+            <div>条目3</div>
+            <div>条目4</div>
+            <div>条目5</div>
+        </div>
+    </div>
+    <script src="../Common/layui/layui.js"></script>
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test1'
+                , width: '60%'
+                , arrow: 'always' //始终显示箭头
+                , trigger: 'click'
+            });
+        });
+    </script>
+</body>
+
+</html>
