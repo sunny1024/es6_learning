@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+
+<body>
+    <script>
+        // const S1 = new Set();
+        // console.log(S1.size);
+
+        // const S2 = new Set([1, 2, 3]);
+        // console.log(S2.size);
+
+        // const S3 = new Set([1, 2, 3, 1, 2, 3]);
+        // console.log(S3.size);
+        // const ary = [...S3];
+        // console.log(ary);
+
+        const S4 = new Set();
+        // 向set结构中添加值  使用add方法
+        S4.add("a").add("b");
+        console.log(S4.size);
+
+        // 从set结构中删除值 用到的方法是delete
+        const r1 = S4.delete("c");
+        console.log(S4.size);
+        console.log(r1);
+
+        // 判断某一个值是否是set数据结构中的成员 使用has
+        const r3 = S4.has("a");
+        console.log(r3);
+
+        // 清空set数据结构中的值 使用clear方法
+        S4.clear();
+        console.log(S4.size);
+
+        // 遍历set数据结构 从中取值
+        const s5 = new Set(['a', 'b', 'c']);
+        s5.forEach(value => {
+            console.log(value)
+        })
+    </script>
+</body>
+
+</html>
