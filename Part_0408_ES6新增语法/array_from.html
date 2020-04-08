@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数方法</title>
+</head>
+
+<body>
+    <script>
+        let arrayLike = {
+            '0': 'a',
+            '1': 'b',
+            '2': 'c',
+            'length': 3,
+        }
+        let arr2 = Array.from(arrayLike);
+        console.log(arr2);
+
+        let array1 = {
+            '0': 1,
+            '1': 2,
+            '2': 3,
+            'length': 3,
+        }
+        let newArr = Array.from(array1, item => item * 2);
+        console.log(newArr);
+
+    </script>
+</body>
+
+</html>

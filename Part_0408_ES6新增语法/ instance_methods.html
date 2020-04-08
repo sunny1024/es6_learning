@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实例方法</title>
+</head>
+
+<body>
+    <script>
+        // find方法 用于找出第一个符合条件的数组成员,如果没有则返回undefined
+        var obj = [{
+            id: 1,
+            name: '张三',
+        }, {
+            id: 2,
+            name: '李四',
+        }];
+        var target = obj.find(item => item.id == 2);
+        console.log(target);
+
+        // findIndex()方法 用于找出第一个符合条件的数组成员的位置，如果没有则返回-1；
+        let arr = [10, 20, 55];
+        var index = arr.findIndex(item => item > 50);
+        console.log(index);
+
+        // includes()方法 表示某个数组是否包含给定的值，返回布尔值
+        let arr1 = [3, 5, 8];
+        var result = arr1.includes(3);
+        console.log(result);
+    </script>
+</body>
+
+</html>

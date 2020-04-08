@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+
+<body>
+    <script>
+        // 箭头函数是用来简化函数定义语法的 小括号里面的是形参 大括号里面的是函数执行体
+        // const fn = () => {
+        //     console.log(123);
+        // }
+        // fn();
+
+
+        // 在箭头函数中，如果函数体中只有一句代码 并且代码的执行结果就是函数的返回值 函数体大括号可以省略
+        // const sum = (num1, num2) => num1 + num2;
+        // const result = sum(10, 20);
+        // console.log(result);
+
+
+        // 在箭头函数中，如果形参只有一个 形参外侧的小括号也是可以省略的
+        // const fun = v => {
+        //     console.log(v);
+        // }
+        // fun(20);
+
+
+        // 箭头函数不绑定this 箭头函数没有自己的this关键字
+        // 如果在箭头函数中使用this this关键字将指向箭头函数定义位置中的this
+        // function fn() {
+        //     console.log(this);
+        //     return () => {
+        //         console.log(this);
+        //     }
+        // }
+        // const obj = { name: "张三" };
+        // const resFn = fn.call(obj);
+        // resFn();
+
+        // 箭头函数面试题
+        var age = 100;
+        var obj = {
+            age: 20,
+            say: () => {
+                alert(this.age);
+            }
+        }
+        // 因为对象没有作用域，所以这里的this指的是全局作用域 window 
+        obj.say()
+    </script>
+</body>
+
+</html>
